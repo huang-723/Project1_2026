@@ -11,7 +11,6 @@ right_name = input("Right player name: ")
 
 left_score = 0
 right_score = 0
-total_rounds = 3
 
 def pressed(button):
     global left_score, right_score
@@ -22,23 +21,15 @@ def pressed(button):
         print(right_name + " won this round!")
         right_score += 1
     print("Total Score: " + left_name + ": " + str(left_score) + " | " + right_name + ": " + str(right_score))
+    print("Next round will start soon...")
+
 
 right_button.when_pressed = pressed
 left_button.when_pressed = pressed
 
-for round_num in range(1, total_rounds + 1):
-    print("\n=== Round " + str(round_num) + " ===")
+while True:
+    print("\n=== New Round ===")
     led.on()
     sleep(uniform(5, 10))
     led.off()
-    sleep(3)
-
-print("\n=== Final Result ===")
-print(left_name + ": " + str(left_score))
-print(right_name + ": " + str(right_score))
-if left_score > right_score:
-    print(left_name + " is the winner!")
-elif right_score > left_score:
-    print(right_name + " is the winner!")
-else:
-    print("It's a tie!")
+    sleep(0.3)

@@ -7,15 +7,24 @@ led = LED(4)
 left_button = Button(14)
 right_button = Button(15)
 
+# 输入玩家姓名
+left_name = input('left player name is: ')
+right_name = input('right player name is: ')
+
 # 灯光逻辑
 led.on()
 sleep(uniform(5, 10))
 led.off()
 
-# 按钮按压函数
+# 获胜判断
 def pressed(button):
-    print(str(button.pin.number) + ' won the game')
+    if button.pin.number == 14:
+        print(left_name + ' won the game')
+    else:
+        print(right_name + ' won the game')
+    # 结束程序
+    exit()
 
-# 绑定按压事件
+# 绑定事件
 right_button.when_pressed = pressed
 left_button.when_pressed = pressed

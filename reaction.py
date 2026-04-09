@@ -1,9 +1,9 @@
 from gpiozero import LED, Button
 from time import sleep
+from random import uniform
 
-# 初始化LED
 led = LED(4)
-# 点亮5秒后熄灭
 led.on()
-sleep(5)
+# 随机延时5-10秒
+sleep(uniform(5, 10))
 led.off()
